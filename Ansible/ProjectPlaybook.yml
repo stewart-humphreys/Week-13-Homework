@@ -1,0 +1,40 @@
+---
+  - name: Project 1 Playbook
+    hosts: elk
+    remote_user: azadmin
+    become: true
+    tasks:
+            - name: Install docker.io
+              apt:
+                      update_cache: yes
+                      name: docker.io
+                      state: present
+            - name: Install pythin3-pip
+              apt:
+                      force_apt_get: yes
+                      name: python3-pip
+                      state: present
+            - name: Install pyhton Docker Module
+              pip:
+                      name: docker
+                      state: present
+            - name: Set VM Memory Parameter
+              sysctl:
+                      name: vm.max_map_count
+                      value: "262144"
+                      state: present
+                      reload: yes
+            - name: download and launch docker web container dvwa
+              docker_container:
+                      name: elk
+                      image: sebp/elk:761
+                      state: started
+                      restart_policy: always
+                      published_ports:
+                        - 5601:5601
+                        - 9200:9200
+                        - 5044:5044
+            - name: enable docker service
+              systemd:
+                      name: docker
+                      enabled: yes
