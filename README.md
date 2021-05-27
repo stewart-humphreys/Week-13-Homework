@@ -39,44 +39,47 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name     | Function | IP Address | Operating System |
-|----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
+| Name                | Function   | IP Address             | Operating System |
+|---------------------|------------|------------------------|------------------|
+| Jum-Box-Provisioner | Jump Box   | 20.83.226.108/10.0.0.4 | Ubuntu           |
+| Web-1               | Web Server | 52.151.21.43/10.0.0.5  | Ubuntu           |
+| Web-2               | Web Server | 52.151.21.43/10.0.0.6  | Ubuntu           |
+| ELK-Server-RT005    | ELK Server | 104.209.145/10.1.0.5   | Ubuntu           |
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
+Only the Jum-Box-Provisioner machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+- 119.18.1.64
 
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+Machines within the network can only be accessed by the Ansible container running on the Jum-Box-Provisioner.
+- Jum-Box-Provisioner
+- 10.0.0.4
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+| Name                | Publicly Accessible | Allowed IP Addresses |
+|---------------------|---------------------|----------------------|
+| Jum-Box-Provisioner | Yes                 | 119.18.1.64          |
+| Web-1               | Yes                 | 119.18.1.64          |
+| Web-2               | Yes                 | 119.18.1.64          |
+| ELK-Server-RT005    | Yes                 | 119.18.1.64          |
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it allows for fast, repeatable and error free provisioning of the VM's
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+- Install Docker
+- Install required Python packages
+- Set the VM memory parameter max_map_count
+- Download and launch the Elk container
+- Enable the docker to run on startup
 
-The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
+The following googledoc has the screenshot that displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+[docker ps output](Images/Screenshots.gdoc)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
