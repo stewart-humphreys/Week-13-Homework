@@ -8,8 +8,8 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
   - [Webserver Playbook](Ansible/WebserverPlaybook.yml)
   - [Elkserver Playbook](Ansible/ElkserverPlaybook.yml)
-  - [Filebeat Playbook](filebeat-playbook.yml)
-  - [Metricbeat Playbook](metricbeat-playbook.yml)
+  - [Filebeat Playbook](Ansible/filebeat-playbook.yml)
+  - [Metricbeat Playbook](Ansible/metricbeat-playbook.yml)
 
 
 This document contains the following details:
