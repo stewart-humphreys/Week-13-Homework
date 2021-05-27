@@ -83,13 +83,17 @@ The following googledoc has the screenshot that displays the result of running `
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+- 10.0.0.5
+- 10.0.0.6 
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- Syslog
+- Sudo commands
+- SSH logins
+- New Users and groups
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- Syslog events, sudo executions, ssh login attempts and user creations and changes.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
