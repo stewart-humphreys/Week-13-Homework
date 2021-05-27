@@ -6,7 +6,11 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
 
-  - _TODO: Enter the playbook file._
+  - [Webserver Playbook](Ansible/WebserverPlaybook.yml)
+  - [Elkserver Playbook](Ansible/ElkserverPlaybook.yml)
+  - [Filebeat Playbook](filebeat-playbook.yml)
+  - [Metricbeat Playbook](metricbeat-playbook.yml)
+
 
 This document contains the following details:
 - Description of the Topologu
@@ -99,7 +103,7 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the [ProjectPlaybook.yml](Ansible/ProjectPlaybook.yml) file to /etc/ansible.
+- Copy the [ElkserverPlaybook.yml](Ansible/ElkserverPlaybook.yml) file to /etc/ansible.
 - Update the /etc/hosts file to include the elk server 10.1.0.5 in the elk group
 - Run the playbook, and navigate to http://104.209.145:5601 to check that the installation worked as expected.
 
